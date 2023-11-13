@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy
 import matplotlib.pyplot as plt
 
 df = pd.read_csv('glass.csv')
@@ -8,9 +7,6 @@ labels = df.to_numpy('int')[:,-1] #последней цифры
 data = df.to_numpy('float')[:,:-1] #информация о строках
 
 
-# print(data,"\n")
-# print(labels,"\n")
-# print(var_names,"\n")
 
 # Предобработка
 from sklearn import preprocessing
