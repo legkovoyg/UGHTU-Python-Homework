@@ -26,6 +26,7 @@ plt.show()
 # график переделанный, от 1 и 2 компоненты
 pca = PCA(n_components =4)
 pca_data = pca.fit(data).transform(data)
+print(pca_data)
 
 # 4 комопоненты объяснят с шансом 85%
 print('4 компоненты объяснят с шансом: ',sum(pca.explained_variance_ratio_),' д.ед.')
@@ -45,7 +46,8 @@ train_X, test_X, train_y, test_y = train_test_split(X,y, test_size= 0.2)
 clf = tree.DecisionTreeClassifier(criterion='entropy', max_depth=3)
 get_n_leaves = 6
 clf.fit(train_X, train_y)
-y_pred =clf.predict(test_X)
+
+
 
 # Проверка переобучения
 print('Accurancy on training set :',format(clf.score(train_X, train_y)))
@@ -54,5 +56,5 @@ print('Accurancy on test_set:',format(clf.score(test_X,test_y)))
 
 # смотрим на итоговое дерево
 plt.subplots(1,1, figsize = (10,10))
-tree.plot_tree(clf, filled = True)
+tree.plot_tree(clf, filled = True, fontsize=10)
 plt.show()

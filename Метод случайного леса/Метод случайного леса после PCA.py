@@ -58,7 +58,7 @@ X1 = new_cdf1[:,:-1]
 y1 = new_cdf1[:,-1]
 train_X1, test_X1, train_y1, test_y1 = train_test_split(X1,y1, test_size= 0.2)
 
-sel = RandomForestRegressor(n_estimators=100, oob_score=True,random_state=1)
+sel = RandomForestRegressor(n_estimators=100, oob_score=False,random_state=1)
 sel.fit (train_X1,train_y1)
 a1 = sel.predict(test_X1)
 # print(a1)
@@ -79,6 +79,3 @@ print('Accurancy on test_set до PCA :',(sel.score(test_X1,test_y1)))
 print('Accurancy on training set после PCA :',(sl.score(train_X, train_y)))
 print('Accurancy on test_set после PCA :',(sl.score(test_X,test_y)))
 
-# #
-# print('AUC-ROC (oob) = ',roc_auc_score(y,sel.oob_prediction_))
-# print('AUC-ROC (test) = ', roc_auc_score(test_y,a))
